@@ -1,17 +1,20 @@
+
 version: '3.8'
 services:
   web:
     container_name: mynginxsite
-    image: ng
+    image: nginx-apache
     ports:
       - "80:81"
-      - "443:443"
+      - "84:84"
       - "83:83"
       - "82:82"
     volumes:
-      - ./nginx-apache/nginx.html:/usr/share/nginx/html/nginx.html
-      - ./nginx-apache/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx-apche/second.html:/usr/share/nginx/html/second.html
+      - ./nginx.html:/usr/share/nginx/html/nginx.html
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./second.html:/usr/share/nginx/html/second.html
+      - ./balance2.html:/usr/share/nginx/html/balance2.html
+      - ./balance1.html:/usr/share/nginx/html/balance1.html
   apache:
     container_name: myphpinfo
     image: php:7.2-apache
@@ -19,3 +22,10 @@ services:
       - "81:80"
     volumes:
       - ./nginx-apache/info.php:/var/www/html/info.php
+
+
+
+
+
+
+
