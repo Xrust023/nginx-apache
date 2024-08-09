@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker и Docker Compose</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #0366d6;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #0366d6;
+        }
+        .content {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #0366d6;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Разница между Docker и Docker Compose</h1>
+    </header>
+    <section>
+        <div class="content">
+            <h2>Docker</h2>
+            <p>Docker - это платформа для разработки, доставки и запуска приложений в контейнерах. Контейнеры позволяют упаковывать приложение и все его зависимости в единый объект, который может работать в любом окружении, будь то локальная машина разработчика, сервер или облако.</p>
+            <p>Основные преимущества Docker:</p>
+            <ul>
+                <li>Изоляция приложений и их зависимостей</li>
+                <li>Легкость масштабирования</li>
+                <li>Быстрая доставка и развертывание</li>
+            </ul>
+
+            <h2>Docker Compose</h2>
+            <p>Docker Compose - это инструмент для определения и запуска многоконтейнерных Docker приложений. С помощью файла <code>docker-compose.yml</code> можно задать конфигурацию для всех контейнеров приложения и запускать их одной командой.</p>
+            <p>Основные преимущества Docker Compose:</p>
+            <ul>
+                <li>Управление многоконтейнерными приложениями</li>
+                <li>Определение конфигурации в одном файле</li>
+                <li>Легкость в настройке сетей и хранения данных между контейнерами</li>
+            </ul>
+
+            <h2>Основные отличия</h2>
+            <p>Docker используется для создания и управления отдельными контейнерами, тогда как Docker Compose облегчает управление группами связанных контейнеров, позволяя запускать их как одно целое.</p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Информация о Docker и Docker Compose</p>
+    </footer>
+</body>
+</html>
