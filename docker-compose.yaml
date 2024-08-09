@@ -11,6 +11,7 @@ services:
     volumes:
       - ./nginx-apache/nginx.html:/usr/share/nginx/html/nginx.html
       - ./nginx-apache/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx-apche/second.html:/usr/share/nginx/html/second.html
   apache:
     container_name: myphpinfo
     image: php:7.2-apache
