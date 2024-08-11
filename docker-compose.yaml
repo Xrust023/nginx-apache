@@ -3,7 +3,7 @@ version: '3.8'
 services:
   web:
     container_name: mynginxsite
-    image: nginx-apache:latest
+    image: dimoon023/nginx-apache:latest
     ports:
       - "80:80"
       - "84:84"
