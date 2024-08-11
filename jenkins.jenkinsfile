@@ -1,0 +1,39 @@
+#!groovy
+
+properties([disableConcurrentBuilds()])
+
+pipeline{
+    agent {
+        label 'main'
+    }
+    triggers { pollSCM('*****')}
+    options {
+        buildDiscarder(logRotator(numtoKeepStr: '2', artifactNumToKeepStr: '2'))
+        timestamps()
+    }
+    stages {
+        stage {
+            echo "========== Docker Sign in =========="
+            withCredentionals([usernamePassword(credentialsId: 'dockerhub-nginx-apache', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                sh """
+                docker login -u $USERNAME -p $PASSWORD
+                """    
+            }
+
+        }
+        stage ("create docker image") {
+            steps {
+                echo "========== Start Build =========="
+                dir ('.') {
+                    sh 'docker build -t dimoon023/nginx-apache:latest .'
+                }
+
+            }
+        }
+        stage {
+            echo "========== Docker Push =========="
+            sh ' docker push dimoon/nginx-apche:latest '
+
+        }
+    }
+}
