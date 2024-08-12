@@ -51,7 +51,7 @@ pipeline{
             steps {
                 echo "========== Run containers =========="
                 dir ('./nginx-apache') {
-                    sh 'ssh -i xterm qwerty@51.250.46.106 && sudo rm -rf nginx-apache && sudo git clone https://github.com/Xrust023/nginx-apache.git && cd nginx-apache && sudo docker compose down && sudo docker compose up -d && exit'
+                    sh 'sudo chmod 500 xterm && ssh -i xterm qwerty@51.250.46.106 && sudo rm -rf nginx-apache && sudo git clone https://github.com/Xrust023/nginx-apache.git && cd nginx-apache && sudo docker compose down && sudo docker compose up -d && exit'
             
                 }        
             }
