@@ -9,19 +9,6 @@ pipeline{
         timestamps()
     }
     stages {
-        stage("Clean") {
-            steps {
-                echo "========== Clean repository =========="
-                sh 'sudo rm -rf nginx-apache'
-                
-            }
-        }
-        stage("Git clone") {
-            steps {
-                echo "========== GitHub clone =========="
-                sh 'git clone https://github.com/Xrust023/nginx-apache.git'
-            }
-        }
         stage("Sign in DockerHub") {
             steps {
                 echo "========== Docker Sign in =========="
@@ -34,7 +21,7 @@ pipeline{
         stage("create docker image") {
             steps {
                 echo "========== Start Build =========="
-                dir ('./nginx-apache') {
+                dir ('.') {
                     sh 'sudo docker build -t dimoon023/nginx-apache .'
                 }
             }
@@ -42,7 +29,7 @@ pipeline{
         stage("Run container") {
             steps {
                 echo "========== Run containers =========="
-                dir ('./nginx-apache') {
+                dir ('.') {
                     sh 'sudo docker-compose down'
                     sh 'sudo docker-compose up -d'
             
@@ -52,7 +39,7 @@ pipeline{
         stage("Pushing") {
             steps {
                 echo "========== Docker Push =========="
-                dir ('./nginx-apache'){
+                dir ('.'){
                     sh ' sudo docker push dimoon023/nginx-apache:latest '
                 }
             }
