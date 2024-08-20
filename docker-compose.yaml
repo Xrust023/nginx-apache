@@ -16,6 +16,10 @@ services:
       - ./second.html:/usr/share/nginx/html/second.html
       - ./balance2.html:/usr/share/nginx/html/balance2.html
       - ./balance1.html:/usr/share/nginx/html/balance1.html
+      - ./ssl-dhparams.pem:/etc/letsencrypt/ssl-dhparams.pem
+      - ./options-ssl-nginx.conf:/etc/letsencrypt/options-ssl-nginx.conf
+      - ./privkey.pem:/etc/letsencrypt/live/dockernginx.ddns.net/privkey.pem
+      - ./fullchain.pem:/etc/letsencrypt/live/dockernginx.ddns.net/fullchain.pem
   apache:
     container_name: myphpinfo
     image: php:7.2-apache
